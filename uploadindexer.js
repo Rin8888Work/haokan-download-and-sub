@@ -134,6 +134,7 @@ export async function uploadIndexerAzure(sourceVideo, qty) {
       const url = urls.shift();
       const [href, title] = url.split("|");
       const segments = href.split("/");
+      console.log({ segments });
       const fileName = sanitizeFilename(`${segments[segmentNum]}-${title}`);
       try {
         if (!href) {
@@ -145,8 +146,10 @@ export async function uploadIndexerAzure(sourceVideo, qty) {
           { href, title: segments[segmentNum] },
           accessToken
         );
+
+        console.log({ videoId });
         if (videoId) {
-          console.log(`${green}Upload thành công video ${reset}: ${title}`);
+          console.log(`${green}Upload thành công video ${reset}: ${fileName}`);
 
           urls = urls.filter((line) => !line.includes(url));
           const updatedFileContent = urls.join("\n");
@@ -163,7 +166,7 @@ export async function uploadIndexerAzure(sourceVideo, qty) {
         }
       } catch (error) {
         console.error(
-          `${red}Lỗi khi upload video:${green} ${title}:${yellow}:`,
+          `${red}Lỗi khi upload video:${green} Id: ${href} ${title}:${yellow}:`,
           error
         );
         return;
