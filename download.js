@@ -7,12 +7,11 @@ import { CONFIG } from "./config.js";
 import { callAccessTokenAPI } from "./helpers/index.js";
 
 const {
+  language,
   location,
   fileUploadedPath: filePath,
   colors,
   accountId,
-  permission,
-  apiKey,
   speechKey,
   speechLocation,
   maxConcurrentDownloads,
@@ -159,7 +158,7 @@ async function downloadVideoCaption(
 
     // Gửi yêu cầu để lấy URL tải xuống video caption
     const response = await axios.get(
-      `https://api.videoindexer.ai/${location}/Accounts/${accountId}/Videos/${videoId}/Captions?format=Srt&language=English&includeAudioEffects=false&includeSpeakers=false&accessToken=${accessToken}`
+      `https://api.videoindexer.ai/${location}/Accounts/${accountId}/Videos/${videoId}/Captions?format=Srt&language=${language}&includeAudioEffects=false&includeSpeakers=false&accessToken=${accessToken}`
     );
 
     // Kiểm tra xem yêu cầu thành công

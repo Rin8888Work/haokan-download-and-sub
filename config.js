@@ -6,11 +6,12 @@ export const CONFIG = {
   bgSound: "nhacnen/original.mp3", //Đường dẫn nhạc nền
   bgSoundDuration: 356, // Thời lượng của nhạc nền tính bằng giây.
   volumnBgSound: 0.7,
+  language: "English",
 
   // Cấu hình key
   speechKey: "404d785dbecf4b9e87464143b1aadbfa",
-  accountId: "cc30e18d-495b-4ade-b60c-8110cb9641af",
-  apiKey: "cdda6a20e4bc4567885f04181c125027",
+  accountId: "6bb3d6c6-e40d-4231-834b-3b43af820f2f",
+  apiKey: "9bf6e68d494041b8b97ed74d0723c748",
 
   // Bên dưới không được thay đổi
   tempHaokan: `tempdata/haokan/videos`,
